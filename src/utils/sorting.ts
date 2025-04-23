@@ -1,6 +1,4 @@
 import { Country, SortType } from "@/types";
-import Interceptors from "undici-types/interceptors";
-import retry = Interceptors.retry;
 
 export const addTotalMedals = (countries: Country[]): Country[] => {
     return countries.map((country) => ({
