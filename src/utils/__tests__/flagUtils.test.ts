@@ -1,6 +1,4 @@
 import { getCountryIndex, FLAG_WIDTH, FLAG_HEIGHT, COUNTRY_CODES } from '../flagUtils';
-import {describe, it} from "node:test";
-import expect from "expect";
 
 describe('Flag Utilities', () => {
     describe('getCountryIndex', () => {

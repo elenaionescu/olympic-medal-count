@@ -1,7 +1,5 @@
 import { addTotalMedals, sortCountries } from '../sorting';
 import { Country, SortType } from '@/types';
-import {describe, it} from "node:test";
-import expect from "expect";
 
 describe('addTotalMedals', () => {
     it('should add total medal count to each country', () => {
