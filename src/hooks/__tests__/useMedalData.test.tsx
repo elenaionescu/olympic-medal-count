@@ -1,18 +1,14 @@
-import { renderHook, act } from '@testing-library/react-hooks';
+import { renderHook, waitFor } from '@testing-library/react';
 import { useMedalData } from '../useMedalData';
 import { API_URL } from '@/utils/constants';
-import {beforeEach, describe, it} from "node:test";
-import expect from "expect";
 
 describe('useMedalData', () => {
-    // Mock data
     const mockMedalData = [
         { code: 'USA', gold: 9, silver: 7, bronze: 12 },
         { code: 'NOR', gold: 11, silver: 5, bronze: 10 }
     ];
 
     beforeEach(() => {
-        // Reset fetch mock before each test
         global.fetch = jest.fn();
     });
 
@@ -22,14 +18,14 @@ describe('useMedalData', () => {
             json: async () => mockMedalData
         });
 
-        const { result, waitForNextUpdate } = renderHook(() => useMedalData());
+        const { result } = renderHook(() => useMedalData());
 
         // Initial state should be loading with empty data
         expect(result.current.loading).toBe(true);
         expect(result.current.countries).toEqual([]);
         expect(result.current.error).toBeNull();
 
-        await waitForNextUpdate();
+        await waitFor(() => expect(result.current.loading).toBe(false));
 
         // After loading, should have data with totals
         expect(result.current.loading).toBe(false);
@@ -46,9 +42,9 @@ describe('useMedalData', () => {
         // Mock API error
         global.fetch = jest.fn().mockRejectedValueOnce(new Error('API Error'));
 
-        const { result, waitForNextUpdate } = renderHook(() => useMedalData());
+        const { result } = renderHook(() => useMedalData());
 
-        await waitForNextUpdate();
+        await waitFor(() => expect(result.current.loading).toBe(false));
 
         expect(result.current.loading).toBe(false);
         expect(result.current.countries).toEqual([]);
@@ -63,9 +59,9 @@ describe('useMedalData', () => {
             statusText: 'Not Found'
         });
 
-        const { result, waitForNextUpdate } = renderHook(() => useMedalData());
+        const { result } = renderHook(() => useMedalData());
 
-        await waitForNextUpdate();
+        await waitFor(() => expect(result.current.loading).toBe(false));
 
         // Should set error state
         expect(result.current.loading).toBe(false);
