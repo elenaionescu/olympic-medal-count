@@ -92,7 +92,7 @@ yarn start
 
 ### Possible Improvements
 
-- Add unit and integration tests
+- Add more unit and integration tests
 - Implement server-side rendering for better SEO
 - Add internationalization support
 - Add data caching for better performance
