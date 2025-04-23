@@ -69,6 +69,24 @@ yarn dev
 
 4. Open http://localhost:3000 in your browser
 
+### Running Tests
+This project uses Jest and React Testing Library for testing. To run the tests:
+```bash # Run all tests
+npm test
+# or
+yarn test
+
+# Run tests in watch mode
+npm test -- --watch
+# or
+yarn test --watch
+
+# Run tests with coverage report
+npm test -- --coverage
+# or
+yarn test --coverage
+```
+
 ### Using URL Parameters
 You can control the initial sorting of medals by adding a sort parameter to the URL:
 
