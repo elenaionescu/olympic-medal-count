@@ -17,6 +17,9 @@ module.exports = {
 
         // Handle module path aliases
         '^@/components/(.*)$': '<rootDir>/src/components/$1',
+
+        // Existing mappers...
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
     setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
     testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
