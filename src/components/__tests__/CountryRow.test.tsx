@@ -1,9 +1,8 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import CountryRow from '../CountryRow';
 import { Country } from '@/types';
-import {describe, it} from "node:test";
-import expect from "expect";
 
 // Mock the FlagIcon component
 jest.mock('../FlagIcon', () => {
