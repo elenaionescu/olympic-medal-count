@@ -11,19 +11,19 @@ const FlagIcon: React.FC<FlagIconProps> = ({ countryCode }) => {
     const getBackgroundPosition = (code: string) => {
         // Define the countries in the EXACT order they appear in your sprite image
         const flagPositions: Record<string, number> = {
-            'CAN': 0,
-            'USA': 1,
-            'RUS': 2,
-            'NED': 3,
+            'CAN': 2,
+            'USA': 12,
+            'RUS': 9,
+            'NED': 7,
             'FRA': 4,
-            'SWE': 5,
+            'SWE': 11,
             'ITA': 6,
-            'NOR': 7,
-            'AUT': 8,
-            'BLR': 9,
+            'NOR': 8,
+            'AUT': 0,
+            'BLR': 1,
             'SUI': 10,
-            'GER': 11,
-            'CHN': 12
+            'GER': 5,
+            'CHN': 3
         };
 
         const position = flagPositions[code] !== undefined ? flagPositions[code] : 0;
