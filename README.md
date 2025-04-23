@@ -23,11 +23,12 @@ This application displays the medal standings for countries during the Olympic g
 - Error handling for API failures
 - Loading state while data is being fetched
 
-Tech Stack
+### Tech Stack
 
-Framework: Next.js
-Language: TypeScript
-Styling: CSS-in-JS with styled-jsx (built into Next.js)
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Styling**: CSS-in-JS with styled-jsx (built into Next.js)
+- **Testing**: Jest and React Testing Library
 
 ### Project Structure
 ```bash
