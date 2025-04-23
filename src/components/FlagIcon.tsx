@@ -5,20 +5,30 @@ interface FlagIconProps {
 }
 
 const FlagIcon: React.FC<FlagIconProps> = ({ countryCode }) => {
-    // Flag dimensions
-    const flagWidth = 20;
-    const flagHeight = 13;
+    const flagWidth = 28;
+    const flagHeight = 17;
 
     const getBackgroundPosition = (code: string) => {
-        const countryCodes = [
-            'AUT', 'BLR', 'CAN', 'CHN', 'FRA', 'GER', 'ITA',
-            'NED', 'NOR', 'RUS', 'SUI', 'SWE', 'USA'
-        ].sort();
+        // Define the countries in the EXACT order they appear in your sprite image
+        const flagPositions: Record<string, number> = {
+            'CAN': 0,
+            'USA': 1,
+            'RUS': 2,
+            'NED': 3,
+            'FRA': 4,
+            'SWE': 5,
+            'ITA': 6,
+            'NOR': 7,
+            'AUT': 8,
+            'BLR': 9,
+            'SUI': 10,
+            'GER': 11,
+            'CHN': 12
+        };
 
-        const index = countryCodes.indexOf(code);
-        if (index === -1) return '0 0';
+        const position = flagPositions[code] !== undefined ? flagPositions[code] : 0;
 
-        return `-${index * flagWidth}px 0`;
+        return `0 -${position * flagHeight}px`;
     };
 
     return (
