@@ -1,4 +1,4 @@
-export type SortType = keyof Omit<Country, 'code'>;
+export type SortType = 'gold' | 'silver' | 'bronze' | 'total';
 
 export interface Country {
     code: string;

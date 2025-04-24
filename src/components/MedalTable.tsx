@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TableHeader from '@/components/TableHeader';
 import CountryRow from '@/components/CountryRow';
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -21,6 +21,10 @@ const MedalTable: React.FC<MedalTableProps> = ({
     initialSort = 'gold'
 }) => {
     const [sortType, setSortType] = useState<SortType>(initialSort);
+
+    useEffect(() => {
+        setSortType(initialSort);
+    }, [initialSort]);
 
     const handleSortChange = (newSortType: SortType) => {
         setSortType(newSortType);
