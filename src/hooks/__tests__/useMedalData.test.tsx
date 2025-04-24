@@ -2,6 +2,14 @@ import { renderHook, waitFor } from '@testing-library/react';
 import { useMedalData } from '../useMedalData';
 import { API_URL } from '@/utils/constants';
 
+const originalConsoleError = console.error;
+beforeEach(() => {
+    console.error = jest.fn();
+});
+afterEach(() => {
+    console.error = originalConsoleError;
+});
+
 describe('useMedalData', () => {
     const mockMedalData = [
         { code: 'USA', gold: 9, silver: 7, bronze: 12 },
